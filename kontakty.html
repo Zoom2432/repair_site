@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Контакты — бригада «Отвес», ремонт квартир в Москве и МО</title>
+<meta name="description" content="Телефон, Telegram, WhatsApp, MAX. Отвечаем в течение часа, ежедневно 9:00–21:00. Бесплатный выезд на замер по Москве и МО.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body data-page="kontakty">
+<main>
+
+<section class="section blueprint" id="brief">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки" style="padding-top:0;margin-bottom:28px"><a href="index.html">Главная</a><span>/</span><span>Контакты</span></nav>
+    <div class="brief">
+      <div>
+        <h1>Контакты</h1>
+        <p class="hero-lead">Отвечаем в течение часа, ежедневно с 9:00 до 21:00. Выезд на замер по Москве и области (до 30 км от МКАД) бесплатный.</p>
+        <div class="contacts-list">
+          <a href="tel:+79000000000"><span>Телефон</span><span>+7 (900) 000-00-00</span></a>
+          <a href="#"><span>Telegram</span><span>@otves_remont</span></a>
+          <a href="#"><span>WhatsApp</span><span>+7 (900) 000-00-00</span></a>
+          <a href="#"><span>MAX</span><span>+7 (900) 000-00-00</span></a>
+          <div><span>Зона работы</span><span>Москва и МО</span></div>
+        </div>
+      </div>
+
+      <form class="form" novalidate>
+        <div><h2 style="font-size:26px">Рассчитать ремонт</h2><p class="muted" style="margin-top:6px">Пять вопросов — и мы пришлём ориентир по стоимости и сроку.</p></div>
+        <div class="row">
+          <div class="field"><label for="f-area">Площадь, м²</label><input id="f-area" inputmode="numeric" placeholder="58"></div>
+          <div class="field"><label for="f-rooms">Комнат</label>
+            <select id="f-rooms"><option>Студия</option><option>1</option><option selected>2</option><option>3</option><option>4+</option></select></div>
+        </div>
+        <fieldset class="field"><legend>Состояние квартиры</legend>
+          <div class="chips">
+            <label><input type="radio" name="state" id="s1" checked><span>Бетон</span></label>
+            <label><input type="radio" name="state" id="s2"><span>White box</span></label>
+            <label><input type="radio" name="state" id="s3"><span>Отделка застройщика</span></label>
+            <label><input type="radio" name="state" id="s4"><span>Вторичка</span></label>
+          </div></fieldset>
+        <div class="row">
+          <div class="field"><label for="f-keys">Когда ключи</label>
+            <select id="f-keys"><option>Уже получили</option><option>В течение 3 месяцев</option><option>Позже</option></select></div>
+          <div class="field"><label for="f-design">Дизайн-проект</label>
+            <select id="f-design"><option>Нет</option><option>Есть</option><option>В работе</option></select></div>
+        </div>
+        <div class="field"><label for="f-plan">Планировка (фото или PDF), необязательно</label><input id="f-plan" type="file" accept="image/*,.pdf"></div>
+        <div class="row">
+          <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" type="tel" placeholder="+7" autocomplete="tel"></div>
+          <div class="field"><label for="f-msg">Куда ответить</label>
+            <select id="f-msg"><option>Telegram</option><option>WhatsApp</option><option>MAX</option><option>Позвонить</option></select></div>
+        </div>
+        <input class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" name="website">
+        <label class="consent"><input type="checkbox" id="f-ok"><span>Согласен на обработку персональных данных по <a href="#">политике</a></span></label>
+        <button class="btn btn-primary arrow" type="submit">Отправить</button>
+        <div class="form-ok" role="status">Заявка принята. В прототипе она никуда не отправляется; в рабочей версии придёт в Telegram и на почту.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

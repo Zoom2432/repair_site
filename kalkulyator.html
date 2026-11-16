@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Калькулятор ремонта квартиры — смета по этапам онлайн | Отвес</title>
+<meta name="description" content="Посчитайте ремонт квартиры по работам: стены, полы, потолки, санузлы, электрика. Смета по 12 этапам, материалы отдельно, срок и порядок оплаты.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/pricing.js" defer></script>
+<script src="assets/app.js" defer></script>
+<style>
+.kgrid{display:grid;gap:32px;align-items:start}
+@media (min-width:1080px){.kgrid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
+.kgrid > *{min-width:0}
+.kform{display:flex;flex-direction:column;gap:20px}
+.kblock{background:var(--white);border:1px solid var(--line);padding:22px clamp(16px,2.5vw,28px);display:flex;flex-direction:column;gap:18px}
+.kblock > h2{font-size:20px;display:flex;gap:12px;align-items:baseline}
+.kblock > h2 .n{font:500 13px var(--f-mono);color:var(--blue)}
+.kblock .hint{font-size:14px;color:var(--muted);margin-top:-8px}
+.krow{display:grid;gap:16px}
+@media (min-width:640px){.krow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.krow.three{}
+@media (min-width:640px){.krow.three{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.opt{display:grid;gap:8px}
+.opt label{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:baseline;border:1px solid var(--line);padding:12px 14px;cursor:pointer;background:var(--paper)}
+.opt label:has(input:checked){border-color:var(--blue);background:var(--blue-soft)}
+.opt label:has(input:focus-visible){outline:2px solid var(--blue)}
+.opt input{accent-color:var(--blue);margin:0;align-self:center}
+.opt .t{font-size:15px}
+.opt .p{font:13px var(--f-mono);color:var(--muted);white-space:nowrap}
+.opt .d{grid-column:2/4;font-size:13px;color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;border:1px solid var(--line);background:var(--paper)}
+.seg label{flex:1 1 auto;position:relative;text-align:center;padding:10px 12px;cursor:pointer;font-size:15px;border-right:1px solid var(--line);min-width:52px}
+.seg label:last-child{border-right:0}
+.seg input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;margin:0}
+.seg label:has(input:checked){background:var(--ink);color:#fff}
+.seg label:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:-2px}
+.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);padding:12px 14px;background:var(--paper);cursor:pointer}
+.toggle input{width:20px;height:20px;accent-color:var(--blue);flex:none}
+.toggle span small{display:block;color:var(--muted);font-size:13px}
+.stepper{display:flex;align-items:stretch;border:1px solid var(--line);background:var(--paper);width:max-content}
+.stepper button{width:44px;border:0;background:none;font:20px var(--f-mono);cursor:pointer;color:var(--ink)}
+.stepper button:hover{background:var(--blue-soft)}
+.stepper input{width:64px;text-align:center;border:0;border-left:1px solid var(--line);border-right:1px solid var(--line);font:500 16px var(--f-mono);background:var(--white);min-height:44px;color:var(--ink)}
+.presets{display:grid;gap:8px}
+@media (min-width:640px){.presets{grid-template-columns:repeat(3,1fr)}}
+.presets button{text-align:left;border:1px solid var(--line);background:var(--paper);padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:2px;font:inherit;color:var(--ink)}
+.presets button b{font-weight:600}
+.presets button span{font-size:13px;color:var(--muted)}
+.presets button[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft)}
+.area-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.area-row input[type=range]{accent-color:var(--blue);width:100%}
+.area-row .num-in{width:96px;font:500 18px var(--f-mono);padding:10px;border:1px solid var(--line);background:var(--paper);text-align:right;color:var(--ink)}
+
+.result{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;gap:0;background:var(--white);border:1px solid var(--ink)}
+.result .top{padding:22px 24px;background:var(--ink);color:#fff;display:flex;flex-direction:column;gap:6px}
+.result .top small{font:12px var(--f-mono);color:#9FB0D6;text-transform:uppercase;letter-spacing:.08em}
+.result .total{font:500 clamp(32px,4vw,44px)/1.05 var(--f-mono);letter-spacing:-.02em}
+.result .sub{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.result .sub div{padding:14px 16px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.result .sub div:last-child{border-right:0}
+.result .sub dt{font:11px var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.result .sub dd{margin:0;font:500 15px var(--f-mono)}
+.rstages{max-height:min(52vh,560px);overflow:auto}
+.rstage{border-bottom:1px solid var(--line)}
+.rstage summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:28px 1fr auto;gap:10px;padding:11px 16px;font-size:14px;align-items:baseline}
+.rstage summary::-webkit-details-marker{display:none}
+.rstage summary .n{font:12px var(--f-mono);color:var(--blue)}
+.rstage summary .s{font:14px var(--f-mono);white-space:nowrap}
+.rstage[open] summary{background:var(--paper)}
+.rstage table{font-size:13px}
+.rstage td{padding:6px 16px;border-bottom:1px dashed var(--line)}
+.rstage td.q{font-family:var(--f-mono);white-space:nowrap;color:var(--muted)}
+.rstage td.s{font-family:var(--f-mono);white-space:nowrap;text-align:right}
+.result .foot{padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.result .foot p{font-size:13px;color:var(--muted)}
+.mobile-total{display:none}
+@media (max-width:1079px){
+  .result{position:static}
+  .mobile-total{display:flex;position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:25;background:var(--blue);color:#fff;justify-content:space-between;align-items:center;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));text-decoration:none;font:500 15px var(--f-mono)}
+  .mobile-total:hover{color:#fff}
+}
+@media (min-width:900px) and (max-width:1079px){.mobile-total{bottom:0}}
+</style>
+</head>
+<body data-page="ceny">
+<main>
+
+<section class="blueprint" style="padding-bottom:48px">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>/</span><a href="ceny.html">Цены</a><span>/</span><span>Калькулятор</span></nav>
+    <h1 style="margin-top:28px;max-width:900px">Калькулятор ремонта квартиры</h1>
+    <p class="hero-lead">Выберите, что нужно сделать, и увидите смету по тем же 12 этапам и расценкам, по которым мы считаем после замера. Цены — только работы, материалы отдельно.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="wrap">
+    <div class="kgrid">
+
+      <form class="kform" id="kform" onsubmit="return false">
+
+        <div class="kblock">
+          <h2><span class="n">00</span>Начать с примера</h2>
+          <p class="hint">Заполнит всё ниже как в одной из наших смет. Потом можно поменять любой пункт.</p>
+          <div class="presets" role="group" aria-label="Примеры смет">
+            <button type="button" data-preset="base" aria-pressed="false"><b>Базовый</b><span>аккуратно, без сложных решений</span></button>
+            <button type="button" data-preset="comfort" aria-pressed="true"><b>Комфорт</b><span>продуманный ремонт для жизни</span></button>
+            <button type="button" data-preset="design" aria-pressed="false"><b>Под дизайн-проект</b><span>по чертежам дизайнера</span></button>
+          </div>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">01</span>Квартира</h2>
+          <div class="field"><label for="area">Площадь, м²</label>
+            <div class="area-row"><input type="range" id="area" min="20" max="160" value="58"><input class="num-in" id="areaNum" type="number" min="15" max="300" value="58" aria-label="Площадь, м²"></div></div>
+          <div class="krow three">
+            <fieldset class="field"><legend>Комнат</legend>
+              <div class="seg">
+                <label><input type="radio" name="rooms" value="1" id="r1">1</label>
+                <label><input type="radio" name="rooms" value="2" id="r2" checked>2</label>
+                <label><input type="radio" name="rooms" value="3" id="r3">3</label>
+                <label><input type="radio" name="rooms" value="4" id="r4">4+</label>
+              </div></fieldset>
+            <fieldset class="field"><legend>Санузлов</legend>
+              <div class="seg">
+                <label><input type="radio" name="baths" value="1" id="b1" checked>1</label>
+                <label><input type="radio" name="baths" value="2" id="b2">2</label>
+                <label><input type="radio" name="baths" value="3" id="b3">3</label>
+              </div></fieldset>
+            <div class="field"><label for="height">Высота потолка</label>
+              <select id="height"><option value="2.6">2,6 м</option><option value="2.7" selected>2,7 м</option><option value="2.85">2,85 м</option><option value="3">3,0 м</option><option value="3.2">3,2 м и выше</option></select></div>
+          </div>
+          <fieldset class="field"><legend>Что сейчас в квартире</legend>
+            <div class="opt">
+              <label><input type="radio" name="state" value="concrete" id="st1" checked><span class="t">Бетон, без отделки</span><span class="p"></span><span class="d">делаем всё с нуля</span></label>
+              <label><input type="radio" name="state" value="whitebox" id="st2"><span class="t">White box (предчистовая)</span><span class="p"></span><span class="d">штукатурку и стяжку застройщика проверяем и обычно сохраняем</span></label>
+              <label><input type="radio" name="state" value="secondary" id="st3"><span class="t">Вторичка или старая отделка</span><span class="p"></span><span class="d">добавится демонтаж</span></label>
+            </div></fieldset>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">02</span>Перегородки</h2>
+          <p class="hint">По умолчанию — типовой объём для такой площади. Если планировка не меняется, поставьте 0.</p>
+          <div class="field"><label for="partitions">Новые перегородки, м²</label>
+            <div class="stepper"><button type="button" data-step="-2" data-for="partitions" aria-label="Меньше">−</button><input id="partitions" type="number" min="0" value="20"><button type="button" data-step="2" data-for="partitions" aria-label="Больше">+</button></div></div>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">03</span>Электрика</h2>
+          <fieldset class="field"><legend>Сколько точек</legend>
+            <div class="opt">
+              <label><input type="radio" name="electric" value="std"><span class="t">Стандарт</span><span class="p">≈ 1,4 на м²</span><span class="d">розетки и свет по нормам</span></label>
+              <label><input type="radio" name="electric" value="ext" checked><span class="t">Расширенная</span><span class="p">≈ 1,7 на м²</span><span class="d">дополнительные розетки у кровати, на кухне, под технику</span></label>
+              <label><input type="radio" name="electric" value="project"><span class="t">По электропроекту</span><span class="p">≈ 2,1 на м²</span><span class="d">сценарии света, умный дом, много групп</span></label>
+            </div></fieldset>
+          <div class="field"><label for="led">Подсветка лентой, м</label>
+            <div class="stepper"><button type="button" data-step="-2" data-for="led" aria-label="Меньше">−</button><input id="led" type="number" min="0" value="6"><button type="button" data-step="2" data-for="led" aria-label="Больше">+</button></div></div>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">04</span>Сантехника и санузлы</h2>
+          <fieldset class="field"><legend>Плитка в санузлах</legend>
+            <div class="opt">
+              <label><input type="radio" name="tile" value="std"><span class="t">Стандартный формат</span><span class="p">2 400 ₽/м²</span><span class="d">до 30×60</span></label>
+              <label><input type="radio" name="tile" value="large" checked><span class="t">Крупный формат 60×120</span><span class="p">3 400 ₽/м²</span><span class="d">меньше швов, ровная раскладка</span></label>
+              <label><input type="radio" name="tile" value="xl"><span class="t">120×60 и больше, запил 45°</span><span class="p">4 600 ₽/м²</span><span class="d">углы без раскладки, ниши, бесшовный вид</span></label>
+            </div></fieldset>
+          <div class="krow">
+            <div class="field"><label for="installations">Инсталляции (подвесной унитаз и др.)</label>
+              <div class="stepper"><button type="button" data-step="-1" data-for="installations" aria-label="Меньше">−</button><input id="installations" type="number" min="0" max="6" value="1"><button type="button" data-step="1" data-for="installations" aria-label="Больше">+</button></div></div>
+            <div class="field" style="justify-content:flex-end;gap:8px">
+              <label class="toggle"><span>Душевой трап<small>душ без поддона</small></span><input type="checkbox" id="drain"></label>
+            </div>
+          </div>
+          <label class="toggle"><span>Вытяжка кухни в коробе<small>воздуховод до вентканала</small></span><input type="checkbox" id="vent" checked></label>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">05</span>Стены</h2>
+          <fieldset class="field"><legend>Финишная отделка</legend>
+            <div class="opt">
+              <label><input type="radio" name="walls" value="wallpaper"><span class="t">Обои</span><span class="p">950 ₽/м²</span><span class="d">шпатлёвка под обои и поклейка</span></label>
+              <label><input type="radio" name="walls" value="paint" checked><span class="t">Покраска</span><span class="p">1 100 ₽/м²</span><span class="d">шпатлёвка в 2 слоя под покраску</span></label>
+              <label><input type="radio" name="walls" value="decor"><span class="t">Покраска + декоративная штукатурка</span><span class="p">≈ 1 540 ₽/м²</span><span class="d">декор примерно на четверти стен</span></label>
+            </div></fieldset>
+          <label class="toggle"><span>Кухонный фартук плиткой<small>≈ 3 м²</small></span><input type="checkbox" id="backsplash" checked></label>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">06</span>Полы</h2>
+          <fieldset class="field"><legend>Покрытие в комнатах</legend>
+            <div class="opt">
+              <label><input type="radio" name="floor" value="lam"><span class="t">Ламинат или кварцвинил</span><span class="p">700 ₽/м²</span></label>
+              <label><input type="radio" name="floor" value="wood" checked><span class="t">Инженерная доска</span><span class="p">1 400 ₽/м²</span></label>
+              <label><input type="radio" name="floor" value="tile"><span class="t">Керамогранит</span><span class="p">1 900 ₽/м²</span></label>
+            </div></fieldset>
+          <fieldset class="field"><legend>Тёплый пол</legend>
+            <div class="seg">
+              <label><input type="radio" name="heat" value="none">Нет</label>
+              <label><input type="radio" name="heat" value="bath" checked>Санузлы</label>
+              <label><input type="radio" name="heat" value="bathKitchen">Санузлы и кухня</label>
+            </div></fieldset>
+          <p class="hint" style="margin-top:0">На кухне всегда керамогранит. Стяжка — полусухая, по всей квартире кроме санузлов.</p>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">07</span>Потолки</h2>
+          <div class="opt">
+            <label><input type="radio" name="ceiling" value="stretch"><span class="t">Натяжные</span><span class="p">750 ₽/м²</span><span class="d">быстро, ровно, подходит для большинства комнат</span></label>
+            <label><input type="radio" name="ceiling" value="gkl" checked><span class="t">ГКЛ под покраску</span><span class="p">2 400 ₽/м²</span><span class="d">скрытые карнизы, точечный свет</span></label>
+            <label><input type="radio" name="ceiling" value="complex"><span class="t">ГКЛ многоуровневый, теневой профиль</span><span class="p">3 400 ₽/м²</span><span class="d">по проекту дизайнера</span></label>
+          </div>
+        </div>
+
+        <div class="kblock">
+          <h2><span class="n">08</span>Двери и плинтусы</h2>
+          <div class="krow">
+            <fieldset class="field"><legend>Двери</legend>
+              <div class="seg"><label><input type="radio" name="doors" value="std">Обычные</label><label><input type="radio" name="doors" value="hidden" checked>Скрытого монтажа</label></div></fieldset>
+            <fieldset class="field"><legend>Плинтус</legend>
+              <div class="seg"><label><input type="radio" name="skirt" value="std" checked>Обычный</label><label><input type="radio" name="skirt" value="shadow">Теневой</label></div></fieldset>
+          </div>
+        </div>
+
+      </form>
+
+      <aside class="result" id="result" aria-live="polite">
+        <div class="top"><small>Работы, ориентир</small><span class="total" id="rTotal">—</span><span class="mono" id="rPer" style="color:#B6C0D6;font-size:14px">—</span></div>
+        <dl class="sub">
+          <div><dt>Материалы черн.</dt><dd id="rMat">—</dd></div>
+          <div><dt>Срок</dt><dd id="rDays">—</dd></div>
+          <div><dt>Оплата</dt><dd id="rActs">—</dd></div>
+        </dl>
+        <div class="rstages" id="rStages"></div>
+        <div class="foot">
+          <a class="btn btn-primary arrow" href="kontakty.html#brief">Отправить расчёт прорабу</a>
+          <p>Это ориентир по нашим расценкам. Точная смета — после бесплатного замера: в ней будут реальные объёмы вашей квартиры. Обычно расхождение в пределах 10%.</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<a class="mobile-total" href="#result"><span>Работы</span><span id="mTotal">—</span></a>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const O = window.OTVES, fmt = O.fmt;
+  const form = document.getElementById('kform');
+  const $ = id => document.getElementById(id);
+  let level = 'comfort';
+  let partitionsTouched = false;
+
+  const radio = n => form.querySelector(`input[name=${n}]:checked`)?.value;
+  const setRadio = (n, v) => { const el = form.querySelector(`input[name=${n}][value="${v}"]`); if (el) el.checked = true; };
+
+  function read() {
+    return {
+      area: +$('areaNum').value || 58,
+      rooms: +radio('rooms'), baths: +radio('baths'), height: +$('height').value,
+      state: radio('state'), partitions: +$('partitions').value, level,
+      electric: radio('electric'), led: +$('led').value,
+      tile: radio('tile'), installations: +$('installations').value, drain: $('drain').checked, vent: $('vent').checked,
+      walls: radio('walls'), backsplash: $('backsplash').checked,
+      floor: radio('floor'), heat: radio('heat'), ceiling: radio('ceiling'),
+      doors: radio('doors'), skirt: radio('skirt'),
+    };
+  }
+
+  function render() {
+    const r = O.compute(read());
+    $('rTotal').textContent = fmt(r.work) + ' ₽';
+    $('mTotal').textContent = fmt(r.work) + ' ₽';
+    $('rPer').textContent = '≈ ' + fmt(r.perM2) + ' ₽ за м² · ' + r.input.area + ' м²';
+    $('rMat').textContent = fmt(r.materials[0] / 1000) + '–' + fmt(r.materials[1] / 1000) + ' тыс. ₽';
+    $('rDays').textContent = r.days + '–' + (r.days + 15) + ' дн.';
+    $('rActs').textContent = r.acts + ' актов';
+    $('rStages').innerHTML = r.stages.map(s => `
+      <details class="rstage">
+        <summary><span class="n">${String(s.n).padStart(2, '0')}</span><span>${s.name}</span><span class="s">${fmt(s.sum)} ₽</span></summary>
+        <table><tbody>${s.items.map(it => `<tr><td>${it.name}</td><td class="q">${String(it.qty).replace('.', ',')} ${it.unit} × ${fmt(it.price)}</td><td class="s">${fmt(it.sum)}</td></tr>`).join('')}</tbody></table>
+      </details>`).join('');
+  }
+
+  function applyPreset(k) {
+    const p = O.PRESETS[k]; level = k;
+    ['walls','floor','ceiling','tile','electric','heat','doors','skirt'].forEach(n => setRadio(n, p[n]));
+    $('installations').value = p.installations; $('led').value = p.led;
+    $('drain').checked = p.drain; $('backsplash').checked = p.backsplash; $('vent').checked = p.vent;
+    document.querySelectorAll('[data-preset]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.preset === k)));
+    render();
+  }
+
+  function autoPartitions() {
+    if (partitionsTouched) return;
+    const st = radio('state');
+    $('partitions').value = st === 'whitebox' ? 0 : Math.round((+$('areaNum').value || 58) * 0.35);
+  }
+
+  $('area').addEventListener('input', e => { $('areaNum').value = e.target.value; autoPartitions(); render(); });
+  $('areaNum').addEventListener('input', e => { $('area').value = e.target.value; autoPartitions(); render(); });
+  $('partitions').addEventListener('input', () => { partitionsTouched = true; });
+  form.addEventListener('change', e => {
+    if (e.target.name === 'state') autoPartitions();
+    if (e.target.id === 'partitions') partitionsTouched = true;
+    render();
+  });
+  form.addEventListener('input', e => { if (e.target.type === 'number') render(); });
+  document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
+    const inp = $(b.dataset.for);
+    inp.value = Math.max(+inp.min || 0, Math.min(+inp.max || 999, (+inp.value || 0) + +b.dataset.step));
+    if (b.dataset.for === 'partitions') partitionsTouched = true;
+    render();
+  }));
+  document.querySelectorAll('[data-preset]').forEach(b => b.addEventListener('click', () => applyPreset(b.dataset.preset)));
+
+  autoPartitions();
+  applyPreset('comfort');
+  document.querySelector('.rstage')?.setAttribute('open', '');
+});
+</script>
+</body>
+</html>

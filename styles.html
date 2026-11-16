@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Четыре стиля сайта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Onest:wght@700&family=Geologica:wght@600&family=Rubik:wght@600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:#EEF0F3;color:#14213D;font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:32px}
+h1{margin:0;font-size:clamp(28px,4vw,40px);font-weight:600;line-height:1.15}
+.lead{color:#56627A;max-width:70ch;margin:12px 0 0}
+.grid{display:grid;gap:20px}
+@media (min-width:760px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{background:#fff;border:1px solid #D2D9E4;display:flex;flex-direction:column;text-decoration:none;color:#14213D;min-width:0}
+.card:hover{border-color:#2B59C3}
+.card .logo{height:140px;display:grid;place-items:center;border-bottom:1px solid #D2D9E4}
+.card .body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h2{margin:0;font-size:20px;font-weight:600}
+.card .tag{font:12px "IBM Plex Mono",monospace;color:#56627A;text-transform:uppercase;letter-spacing:.06em}
+.card p{margin:0;color:#56627A;font-size:15px}
+.card .go{margin-top:auto;padding-top:12px;font-weight:500;color:#2B59C3}
+.sw{display:flex;gap:6px}
+.sw i{width:28px;height:28px;border:1px solid #D2D9E4;display:block}
+.note{font-size:14px;color:#56627A;max-width:80ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <h1>Четыре стиля сайта</h1>
+    <p class="lead">У каждого стиля своё название и логотип. Тексты, структура и цифры везде одинаковые, отличается только подача. Полностью проработан основной вариант «Отвес». У трёх других сделана главная страница, внутренние ссылки ведут в основной прототип.</p>
+  </div>
+  <div class="grid">
+    <a class="card" href="index.html">
+      <div class="logo" style="background:#F7F8FA;background-image:linear-gradient(#E9EDF4 1px,transparent 1px),linear-gradient(90deg,#E9EDF4 1px,transparent 1px);background-size:20px 20px">
+        <svg viewBox="0 0 168 44" height="40" aria-label="Отвес"><line x1="14" y1="2" x2="14" y2="18" stroke="#2B59C3" stroke-width="2"/><path d="M10.5 18 h7 v3 l4 4 l-7.5 12 l-7.5 -12 l4 -4 z" fill="#14213D"/><text x="34" y="31" font-family="'IBM Plex Sans',sans-serif" font-weight="600" font-size="24" letter-spacing="4" fill="#14213D">ОТВЕС</text></svg>
+      </div>
+      <div class="body"><span class="tag">основной · все страницы</span><h2>«Отвес» — Чертёж</h2>
+        <p>Инженерная точность: белый лист, тушь, синие размерные линии, цифры моноширинным шрифтом. Подчёркивает расчёт и контроль.</p>
+        <div class="sw"><i style="background:#F7F8FA"></i><i style="background:#14213D"></i><i style="background:#2B59C3"></i></div>
+        <span class="go">Открыть →</span></div>
+    </a>
+    <a class="card" href="do-zaezda/index.html">
+      <div class="logo" style="background:#F3F3F1">
+        <svg viewBox="0 0 212 40" height="38" aria-label="До заезда"><rect x="1" y="5" width="30" height="30" fill="none" stroke="#1E2124" stroke-width="2"/><path d="M31 28 V12" stroke="#F3F3F1" stroke-width="3"/><path d="M38 20 h-16 m4 -4 l-4 4 l4 4" fill="none" stroke="#2F5D62" stroke-width="2"/><text x="44" y="28" font-family="Onest, sans-serif" font-weight="700" font-size="22" letter-spacing="-0.5" fill="#1E2124">до заезда</text></svg>
+      </div>
+      <div class="body"><span class="tag">вариант A · главная</span><h2>«До заезда» — Бетон и свет</h2>
+        <p>Архитектурный минимализм: светлый бетон, графит, крупный гротеск и много воздуха. Название сразу говорит, что вы получите.</p>
+        <div class="sw"><i style="background:#F3F3F1"></i><i style="background:#1E2124"></i><i style="background:#2F5D62"></i></div>
+        <span class="go">Открыть →</span></div>
+    </a>
+    <a class="card" href="mera/index.html">
+      <div class="logo" style="background:#141619">
+        <svg viewBox="0 0 140 36" height="36" aria-label="Мера"><path d="M3 3 V33 H33" fill="none" stroke="#ECEEF0" stroke-width="3"/><path d="M3 10 h6 M3 17 h4 M3 24 h6 M10 33 v-6 M17 33 v-4 M24 33 v-6" stroke="#8FB3D1" stroke-width="1.6"/><text x="44" y="27" font-family="Geologica, sans-serif" font-weight="600" font-size="24" letter-spacing="3" fill="#ECEEF0">МЕРА</text></svg>
+      </div>
+      <div class="body"><span class="tag">вариант Г · главная</span><h2>«Мера» — Графит</h2>
+        <p>Тёмная сдержанная тема без золота и блеска: графит, холодный белый, стальной акцент. Серьёзно и технологично, как сайт производителя инструмента. Знак — строительный угольник с делениями.</p>
+        <div class="sw"><i style="background:#141619"></i><i style="background:#ECEEF0"></i><i style="background:#8FB3D1"></i></div>
+        <span class="go">Открыть →</span></div>
+    </a>
+    <a class="card" href="novyi-klyuch/index.html">
+      <div class="logo" style="background:#F3F4F7">
+        <svg viewBox="0 0 196 40" height="36" aria-label="Новый ключ"><rect x="0" y="2" width="36" height="36" rx="11" fill="#5B4FE9"/><circle cx="13.5" cy="20" r="5.5" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M19 20 H29 M25 20 v4.5 M29 20 v3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><text x="46" y="27" font-family="Rubik, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.3" fill="#16181D">новый ключ</text></svg>
+      </div>
+      <div class="body"><span class="tag">вариант М · главная</span><h2>«Новый ключ» — Мягкий модерн</h2>
+        <p>Светлый, скруглённые карточки, крупные фото, плавные мелочи — как современный сервис или приложение. Дружелюбно, но аккуратно. Знак — ключ в иконке приложения.</p>
+        <div class="sw"><i style="background:#F3F4F7"></i><i style="background:#16181D"></i><i style="background:#5B4FE9"></i></div>
+        <span class="go">Открыть →</span></div>
+    </a>
+  </div>
+  <p class="note">Домены свободны на 16.11.2026: otvesremont.ru, dozaezda.ru, meraremont.ru, noviy-klyuch.ru. Товарные знаки не проверялись.</p>
+</div>
+</body>
+</html>

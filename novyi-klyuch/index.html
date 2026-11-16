@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Новый ключ — ремонт квартир под ключ в Москве и Подмосковье</title>
+<meta name="description" content="Ремонт квартир в новостройках под ключ: от бетона до заезда. Смета по позициям, оплата по актам, фотоотчёты. Москва и МО.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap">
+<style>
+/* Стиль «Мягкий модерн»: светлый, скруглённые карточки, крупные фото, спокойный фиолетовый акцент. Как современный сервис. */
+:root{
+  --bg:#F3F4F7; --card:#FFFFFF; --ink:#16181D; --muted:#646A75; --line:#E4E6EC;
+  --accent:#5B4FE9; --accent-2:#463AD1; --accent-soft:#ECEAFD; --ok:#1F9D6B; --ok-soft:#E3F5EC;
+  --r:24px; --r-sm:14px; --shadow:0 1px 2px rgba(22,24,29,.04),0 8px 24px -12px rgba(22,24,29,.12);
+  --f:"Rubik",system-ui,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--f);padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+@media (min-width:900px){body{padding-bottom:0}}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px;box-shadow:0 0 0 2px var(--accent)}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;font-weight:600}
+h1{font-size:clamp(34px,4.4vw,56px)}
+h2{font-size:clamp(28px,3.6vw,44px)}
+h3{font-size:20px;line-height:1.25;font-weight:500}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sec{padding-block:clamp(48px,7vw,96px)}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(28px,4vw,44px);max-width:720px}
+.head p{color:var(--muted);font-size:18px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:6px 14px;border-radius:99px;width:max-content}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);min-width:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;font:500 16px var(--f);text-decoration:none;border-radius:99px;border:0;white-space:nowrap;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.p{background:var(--accent);color:#fff}.btn.p:hover{background:var(--accent-2);color:#fff}
+.btn.s{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}.btn.s:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.flag{background:#FFF4D6;color:#5C4400;font-size:13px;text-align:center;padding:6px 16px}
+.flag a{color:#5C4400}
+
+/* шапка */
+header.top{position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:20;margin-top:10px}
+header.top .bar-in{display:flex;align-items:center;gap:24px;min-height:64px;padding:0 10px 0 20px;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-radius:99px;box-shadow:var(--shadow)}
+.nav{display:none;gap:4px;font-size:15px}
+.nav a{color:var(--ink);text-decoration:none;padding:8px 14px;border-radius:99px;white-space:nowrap}
+.nav a:hover{background:var(--bg)}
+.hphone{margin-left:auto;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:15px}
+.hcta{display:none;min-height:44px}
+@media (min-width:1100px){.nav{display:flex}.hcta{display:inline-flex}}
+@media (max-width:480px){.hphone{display:none}header.top .bar-in{min-height:58px}}
+
+/* hero */
+.hero{display:grid;gap:16px;padding-top:24px}
+@media (min-width:960px){.hero{grid-template-columns:1.05fr .95fr}}
+.hero .main{padding:clamp(28px,4.5vw,56px);display:flex;flex-direction:column;gap:24px;justify-content:center}
+.hero .lead{font-size:clamp(18px,1.6vw,20px);color:var(--muted);max-width:520px}
+.hero .side{display:grid;gap:16px;grid-template-rows:1fr auto}
+.photo{border-radius:var(--r);background:linear-gradient(160deg,#DCDDE6,#A9ACBC);min-height:300px;position:relative;overflow:hidden}
+.photo.b{background:linear-gradient(160deg,#E4DFD8,#B8AFA3)}
+.photo.c{background:linear-gradient(160deg,#D9E0DE,#A3B1AD)}
+.photo .cap{position:absolute;left:14px;bottom:14px;font-size:13px;background:rgba(255,255,255,.92);padding:5px 12px;border-radius:99px}
+.photo .float{position:absolute;right:16px;top:16px;background:#fff;border-radius:var(--r-sm);padding:12px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:14px}
+.photo .float i{width:30px;height:30px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;font-style:normal;font-weight:700}
+.photo .float small{display:block;color:var(--muted);font-size:12px}
+.minis{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.mini{padding:20px 22px;display:flex;flex-direction:column;gap:2px}
+.mini b{font-size:clamp(28px,3vw,36px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.mini span{color:var(--muted);font-size:14px}
+
+/* этапы */
+.stages{display:grid;gap:16px}
+@media (min-width:760px){.stages{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.stages{grid-template-columns:repeat(4,1fr)}}
+.stage{padding:24px;display:flex;flex-direction:column;gap:12px}
+.stage .ico{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:600;font-size:14px}
+.stage ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.stage .sum{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px dashed var(--line)}
+.stage .sum b{font-weight:600;font-size:19px}
+.stage .sum span{color:var(--muted);font-size:14px}
+.total{margin-top:16px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.total b{font-size:24px;font-weight:600}
+.total span{color:var(--muted)}
+
+/* объекты */
+.objs{display:grid;gap:16px}
+@media (min-width:760px){.objs{grid-template-columns:repeat(3,1fr)}}
+.obj{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);overflow:hidden;transition:transform .2s ease, box-shadow .2s ease}
+.obj:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(22,24,29,.05),0 18px 36px -16px rgba(22,24,29,.22)}
+.obj .photo{border-radius:0;aspect-ratio:4/3;min-height:0}
+.obj .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px}
+.obj .tags{display:flex;gap:6px;flex-wrap:wrap}
+.obj .tags span{font-size:13px;background:var(--bg);padding:4px 10px;border-radius:99px}
+.obj p{color:var(--muted);font-size:15px}
+.obj .now{position:absolute;top:14px;left:14px;font-size:13px;font-weight:500;background:var(--ok);color:#fff;padding:5px 12px;border-radius:99px}
+
+/* сметы */
+.est{display:grid;gap:16px}
+@media (min-width:900px){.est{grid-template-columns:repeat(3,1fr)}}
+.est .card{padding:28px;display:flex;flex-direction:column;gap:16px}
+.est .card.hl{background:var(--accent);color:#fff}
+.est .t{font-size:clamp(30px,3vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1}
+.est .per{font-size:14px;color:var(--muted)}
+.est .hl .per{color:rgba(255,255,255,.75)}
+.est ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.est li{display:flex;gap:10px;align-items:baseline}
+.est li::before{content:"✓";color:var(--ok);font-weight:700}
+.est .hl li::before{color:#fff}
+.est a{margin-top:auto;font-weight:500;text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:6px}
+.est a::after{content:"→"}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+
+/* процесс */
+.steps{display:grid;gap:16px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:24px;display:flex;flex-direction:column;gap:10px;position:relative}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;font-size:15px}
+.step p{color:var(--muted);font-size:15px}
+.step .doc{margin-top:auto;font-size:13px;font-weight:500;color:var(--ok);background:var(--ok-soft);padding:4px 12px;border-radius:99px;width:max-content}
+
+/* прозрачность */
+.trans{display:grid;gap:16px}
+@media (min-width:760px){.trans{grid-template-columns:repeat(3,1fr)}}
+.trans .card{padding:24px;display:flex;flex-direction:column;gap:10px}
+.trans .ico{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.trans .ico svg{width:22px;height:22px}
+.trans p{color:var(--muted);font-size:15px}
+
+/* почему */
+.why{display:grid;gap:16px}
+@media (min-width:760px){.why{grid-template-columns:repeat(2,1fr)}}
+.why .card{padding:28px;display:flex;flex-direction:column;gap:10px}
+.why .card.feat{background:var(--ink);color:#fff}
+.why .card.feat p{color:#B9BDC6}
+.why p{color:var(--muted)}
+
+/* отзывы */
+.revs{display:grid;gap:16px}
+@media (min-width:860px){.revs{grid-template-columns:repeat(2,1fr)}}
+.rev{padding:28px;display:flex;flex-direction:column;gap:18px;position:relative;margin:0}
+.rev blockquote{margin:0;font-size:18px;line-height:1.55}
+.rev footer{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:14px}
+.rev .av{width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:600}
+.sample{position:absolute;top:16px;right:16px;font-size:12px;background:#FFF4D6;color:#7A5A00;padding:2px 10px;border-radius:99px}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--card);border-radius:var(--r-sm);box-shadow:var(--shadow)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 60px 20px 24px;font-size:18px;font-weight:500;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:16px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:20px;color:var(--accent);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg);background:var(--accent-soft)}
+.faq details p{padding:0 24px 22px;color:var(--muted);max-width:70ch}
+
+/* CTA, подвал */
+.cta{padding:clamp(28px,5vw,56px);background:linear-gradient(135deg,var(--accent),#7A6FF2);color:#fff;border-radius:var(--r);display:grid;gap:24px}
+@media (min-width:900px){.cta{grid-template-columns:1.4fr 1fr;align-items:center}}
+.cta p{color:rgba(255,255,255,.85);margin-top:12px;font-size:18px}
+.cta .btn.p{background:#fff;color:var(--accent)}
+.cta .btn.s{background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
+footer.site .card{padding:clamp(24px,4vw,40px);display:grid;gap:28px;font-size:15px}
+@media (min-width:860px){footer.site .card{grid-template-columns:1.4fr 1fr 1fr}}
+footer.site ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+footer.site a{color:var(--ink);text-decoration:none}
+footer.site .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:18px;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.mbar{position:fixed;left:max(10px,env(safe-area-inset-left,0px));right:max(10px,env(safe-area-inset-right,0px));bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:30;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:6px;padding:6px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-radius:99px;box-shadow:0 10px 30px -10px rgba(22,24,29,.3)}
+.mbar a{min-height:50px;display:grid;place-items:center;border-radius:99px;text-decoration:none;color:var(--ink);font-size:13px;font-weight:500;background:var(--bg)}
+.mbar a:first-child{background:var(--accent);color:#fff}
+@media (min-width:900px){.mbar{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="flag">Стиль «Мягкий модерн» · название «Новый ключ» · <a href="../styles.html">все стили</a></div>
+
+<div class="wrap">
+<header class="top"><div class="bar-in">
+  <a href="#" aria-label="Новый ключ — на главную" style="display:flex">
+    <svg viewBox="0 0 196 40" height="34" role="img" aria-label="Новый ключ">
+      <rect x="0" y="2" width="36" height="36" rx="11" fill="#5B4FE9"/>
+      <circle cx="13.5" cy="20" r="5.5" fill="none" stroke="#fff" stroke-width="2.6"/>
+      <path d="M19 20 H29 M25 20 v4.5 M29 20 v3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <text x="46" y="27" font-family="Rubik, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.3" fill="#16181D">новый ключ</text>
+    </svg>
+  </a>
+  <nav class="nav" aria-label="Меню"><a href="#objects">Объекты</a><a href="#prices">Цены</a><a href="#process">Как мы работаем</a><a href="#faq">Вопросы</a></nav>
+  <a class="hphone" href="tel:+79000000000">+7 900 000-00-00</a>
+  <a class="btn p hcta" href="../kalkulyator.html">Рассчитать ремонт</a>
+</div></header>
+
+<main>
+
+<section class="hero">
+  <div class="card main">
+    <span class="pill">Частная бригада · Москва и МО</span>
+    <h1>Ремонт под ключ, после которого просто заезжаете</h1>
+    <p class="lead">Берём квартиру в бетоне и сдаём готовой к жизни. Смета по каждой работе, цена в договоре, оплата после каждого принятого этапа.</p>
+    <div class="btns"><a class="btn p" href="../kalkulyator.html">Рассчитать ремонт</a><a class="btn s" href="#objects">Смотреть объекты</a></div>
+  </div>
+  <div class="side">
+    <div class="photo"><div class="float"><i>✓</i><span>Этап 7 принят<small>фотоотчёт отправлен</small></span></div><span class="cap">Гостиная, Раменки, 64 м²</span></div>
+    <div class="minis">
+      <div class="card mini"><b>20+ лет</b><span>в ремонте и строительстве</span></div>
+      <div class="card mini"><b>60+</b><span>сданных квартир</span></div>
+      <div class="card mini"><b>3 года</b><span>гарантии, 5 лет на скрытые</span></div>
+      <div class="card mini"><b>≤ 3</b><span>объекта одновременно</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="head"><span class="pill">Что входит</span><h2>Всё от бетона до заезда — 12 этапов</h2><p>Пример: двухкомнатная 58 м², смета «Комфорт». Цена и срок каждого этапа известны заранее.</p></div>
+  <div class="stages">
+    <div class="card stage"><span class="ico">1–2</span><h3>Подготовка и перегородки</h3><ul><li>защита общих зон, вывоз мусора</li><li>перегородки и проёмы</li></ul><div class="sum"><b>52 300 ₽</b><span>10 дней</span></div></div>
+    <div class="card stage"><span class="ico">3–4</span><h3>Инженерия</h3><ul><li>электрика: щит, линии, точки</li><li>вода, канализация, вентиляция</li></ul><div class="sum"><b>317 100 ₽</b><span>14 дней</span></div></div>
+    <div class="card stage"><span class="ico">5–8</span><h3>Черновая отделка</h3><ul><li>штукатурка, стяжка</li><li>санузел и плитка</li><li>потолки</li></ul><div class="sum"><b>419 725 ₽</b><span>56 дней</span></div></div>
+    <div class="card stage"><span class="ico">9–12</span><h3>Чистовая отделка</h3><ul><li>стены, полы, двери</li><li>розетки, сантехника</li><li>уборка и сдача</li></ul><div class="sum"><b>383 690 ₽</b><span>30 дней</span></div></div>
+  </div>
+  <div class="card total"><span>Итого работы · около 110 дней · материалы отдельно</span><b>1 172 815 ₽</b></div>
+</section>
+
+<section class="sec" id="objects" style="padding-top:0">
+  <div class="head"><span class="pill">Объекты</span><h2>Квартиры, которые мы сдали</h2><p>С площадью, сроком и стоимостью работ — и с той сложностью, которую пришлось решить.</p></div>
+  <div class="objs">
+    <a class="card obj" href="../obekt.html"><div class="photo"><span class="cap">кухня-гостиная</span></div><div class="body"><h3>Двухкомнатная, Раменки</h3><div class="tags"><span>64 м²</span><span>118 дней</span><span>1,22 млн ₽</span></div><p>Перепад плиты 6 см — полусухая стяжка переменной толщины, высота потолка сохранена.</p></div></a>
+    <a class="card obj" href="../obekt.html"><div class="photo b"><span class="cap">спальня</span></div><div class="body"><h3>Однокомнатная, Красногорск</h3><div class="tags"><span>41 м²</span><span>84 дня</span><span>779 тыс. ₽</span></div><p>Ошибки в электрике застройщика — пересобрали щит, стяжку и стены сохранили.</p></div></a>
+    <a class="card obj" href="../obekt.html"><div class="photo c"><span class="now">Сейчас в работе</span><span class="cap">санузел</span></div><div class="body"><h3>Трёхкомнатная, Коммунарка</h3><div class="tags"><span>74 м²</span><span>этап 7 из 12</span></div><p>По дизайн-проекту. Идёт гидроизоляция и плитка.</p></div></a>
+  </div>
+</section>
+
+<section class="sec" id="prices" style="padding-top:0">
+  <div class="head"><span class="pill">Цены</span><h2>Одна квартира — три сметы</h2><p>Мы не продаём пакеты: смета собирается из работ. Чтобы было с чем сравнить — три полные сметы на одну двухкомнатную 58 м².</p></div>
+  <div class="est">
+    <div class="card"><h3>Базовая</h3><span class="t">889 450 ₽</span><span class="per">≈ 15 300 ₽/м² · 100–115 дней</span>
+      <ul><li>обои на стенах</li><li>ламинат или кварцвинил</li><li>стандартная плитка в санузле</li><li>натяжные потолки</li></ul><a href="../smeta.html#base">Смета по позициям</a></div>
+    <div class="card hl"><h3>Комфорт</h3><span class="t">1 172 815 ₽</span><span class="per">≈ 20 200 ₽/м² · 110–125 дней</span>
+      <ul><li>покраска стен</li><li>инженерная доска</li><li>керамогранит 60×120, инсталляция</li><li>потолки из ГКЛ</li></ul><a href="../smeta.html#comfort">Смета по позициям</a></div>
+    <div class="card"><h3>Под дизайн-проект</h3><span class="t">1 486 905 ₽</span><span class="per">≈ 25 600 ₽/м² · 124–139 дней</span>
+      <ul><li>покраска и декоративная штукатурка</li><li>доска, тёплый пол на кухне</li><li>120×60 с запилом 45°, трап</li><li>многоуровневые потолки</li></ul><a href="../smeta.html#design">Смета по позициям</a></div>
+  </div>
+  <p class="note">Только работы. Черновые материалы — отдельно, по смете и с чеками.</p>
+  <div class="btns" style="margin-top:24px"><a class="btn p" href="../kalkulyator.html">Посчитать свою квартиру</a></div>
+</section>
+
+<section class="sec" id="process" style="padding-top:0">
+  <div class="head"><span class="pill">Как мы работаем</span><h2>Шесть шагов, после каждого — документ</h2></div>
+  <div class="steps">
+    <div class="card step"><span class="n">1</span><h3>Заявка</h3><p>Отвечаем в течение часа, с 9 до 21.</p><span class="doc">дата замера</span></div>
+    <div class="card step"><span class="n">2</span><h3>Замер</h3><p>Бесплатно. Проверяем стяжку, стены, электрику застройщика.</p><span class="doc">обмерный план</span></div>
+    <div class="card step"><span class="n">3</span><h3>Смета</h3><p>За 3 рабочих дня, каждая позиция с объёмом и ценой.</p><span class="doc">смета и график</span></div>
+    <div class="card step"><span class="n">4</span><h3>Договор</h3><p>Цена работ, срок, гарантия, порядок оплаты.</p><span class="doc">договор</span></div>
+    <div class="card step"><span class="n">5</span><h3>Работы</h3><p>Фото дважды в неделю, акт и оплата после этапа.</p><span class="doc">акты и чеки</span></div>
+    <div class="card step"><span class="n">6</span><h3>Сдача</h3><p>Приёмка по списку, схемы электрики и сантехники.</p><span class="doc">гарантийный талон</span></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="head"><span class="pill">Прозрачность</span><h2>Вы всегда знаете, что происходит</h2></div>
+  <div class="trans">
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><h3>Смета до начала</h3><p>Все позиции с объёмами и ценой. Никаких «и прочее».</p></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фото два раза в неделю</h3><p>В мессенджер, без напоминаний. Видеообход после этапа.</p></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4 10-10"/></svg></span><h3>Оплата за принятое</h3><p>Скрытые работы фотографируем до того, как их закроют.</p></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/></svg></span><h3>Чеки на материалы</h3><p>Закупаем по смете и прикладываем чеки. Без наценки.</p></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>График с датами</h3><p>Когда начнётся и закончится каждый этап.</p></div>
+    <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3.5v5.5c0 5-3.5 8-8 9.5-4.5-1.5-8-4.5-8-9.5V6.5z"/></svg></span><h3>Гарантия 3 и 5 лет</h3><p>На работы и на скрытые: электрику, сантехнику, гидроизоляцию.</p></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="head"><span class="pill">Почему с нами спокойно</span><h2>Факты вместо обещаний</h2></div>
+  <div class="why">
+    <div class="card feat"><h3 style="font-size:24px">Прораб, который своими руками построил два дома</h3><p>Знает каждый этап изнутри и видит ошибку до того, как её закроют штукатуркой.</p></div>
+    <div class="card"><h3>Своя постоянная бригада</h3><p>Семь мастеров, которые работают вместе годами. Без случайных субподрядчиков.</p></div>
+    <div class="card"><h3>Цена не растёт по ходу</h3><p>Цена работ в договоре. Меняется только при изменении объёма и по допсоглашению.</p></div>
+    <div class="card"><h3>Решаем, а не объясняем</h3><p>Кривая плита, ошибки застройщика, ограничения УК — находим решение, не сдвигая срок.</p></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="head"><span class="pill">Отзывы</span><h2>Что говорят заказчики</h2></div>
+  <div class="revs">
+    <figure class="card rev"><span class="sample">образец</span><blockquote>Больше всего боялась, что смета вырастет в процессе. Не выросла ни на рубль: всё, что добавляли, мы сами решили добавить и подписали отдельно.</blockquote><footer><span class="av">О</span>Ольга · двухкомнатная, Раменки · 2025</footer></figure>
+    <figure class="card rev"><span class="sample">образец</span><blockquote>Купили квартиру с white box и думали, что останется поклеить обои. Прораб в первый день показал ошибки в электрике и объяснил, что можно оставить.</blockquote><footer><span class="av">Д</span>Дмитрий · однокомнатная, Красногорск · 2025</footer></figure>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="head"><span class="pill">Вопросы</span><h2>Частые вопросы</h2></div>
+  <div class="faq" style="max-width:900px">
+    <details open><summary>Сколько стоит ремонт?</summary><p>Двухкомнатная 58 м² — от 890 тыс. до 1,5 млн ₽ за работы в зависимости от отделки. Черновые материалы — ещё 290–460 тыс. ₽.</p></details>
+    <details><summary>Сколько длится ремонт?</summary><p>Однокомнатная — около 3 месяцев, двухкомнатная — 3,5–4, трёхкомнатная — 4,5–5.</p></details>
+    <details><summary>Нужна ли предоплата?</summary><p>За работы — нет. Вы платите по акту за каждый закрытый этап.</p></details>
+    <details><summary>Может ли цена вырасти?</summary><p>Только если вы меняете объём работ, и только через допсоглашение.</p></details>
+    <details><summary>Работаете с моим дизайнером?</summary><p>Да. До старта проверяем проект на реализуемость и согласовываем спорные узлы.</p></details>
+  </div>
+</section>
+
+<section style="padding-bottom:clamp(48px,7vw,96px)">
+  <div class="cta">
+    <div><h2>Получили ключи? Пришлите планировку</h2><p>Ориентир — за день, точная смета — после бесплатного замера.</p></div>
+    <div class="btns"><a class="btn p" href="../kalkulyator.html">Рассчитать ремонт</a><a class="btn s" href="#">Написать в Telegram</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site" style="padding-bottom:24px">
+  <div class="card">
+    <div><svg viewBox="0 0 196 40" height="30" role="img" aria-label="Новый ключ"><rect x="0" y="2" width="36" height="36" rx="11" fill="#5B4FE9"/><circle cx="13.5" cy="20" r="5.5" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M19 20 H29 M25 20 v4.5 M29 20 v3" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><text x="46" y="27" font-family="Rubik, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.3" fill="#16181D">новый ключ</text></svg>
+      <p style="margin-top:12px;color:var(--muted);max-width:34ch">Частная бригада. Ремонт квартир под ключ в новостройках Москвы и Подмосковья.</p></div>
+    <ul><li><a href="#objects">Объекты</a></li><li><a href="#prices">Цены</a></li><li><a href="#process">Как мы работаем</a></li><li><a href="../kalkulyator.html">Калькулятор</a></li></ul>
+    <ul><li><a href="tel:+79000000000">+7 900 000-00-00</a></li><li><a href="#">Telegram</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">MAX</a></li></ul>
+    <div class="legal"><span>ИП [ФИО скрыто], ИНН 000000000000</span><a href="#" style="color:var(--muted)">Политика обработки персональных данных</a></div>
+  </div>
+</footer>
+</div>
+
+<nav class="mbar" aria-label="Связаться"><a href="tel:+79000000000">Позвонить</a><a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">MAX</a></nav>
+
+</body>
+</html>

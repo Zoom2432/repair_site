@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Цены на ремонт квартиры под ключ в Москве: расценки и сметы | Отвес</title>
+<meta name="description" content="Расценки на работы, стоимость каждого этапа и три полные сметы на квартиру 58 м². Калькулятор по работам, материалы отдельно, оплата по актам.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/pricing.js" defer></script>
+<script src="assets/app.js" defer></script>
+<style>
+.entry{display:grid;gap:16px}
+@media (min-width:860px){.entry{grid-template-columns:repeat(3,1fr)}}
+.entry a{background:var(--white);border:1px solid var(--line);padding:24px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px}
+.entry a:hover{border-color:var(--blue)}
+.entry .k{font:500 13px var(--f-mono);color:var(--blue)}
+.entry p{color:var(--muted);font-size:15px}
+.rates td:first-child{width:60%}
+</style>
+</head>
+<body data-page="ceny">
+<main>
+
+<section class="blueprint" style="padding-bottom:56px">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>/</span><span>Цены</span></nav>
+    <h1 style="margin-top:28px;max-width:860px">Цены на ремонт квартир</h1>
+    <p class="hero-lead">Мы не продаём «пакеты». Смета собирается из конкретных работ: сколько квадратных метров штукатурки, сколько электроточек, какая плитка. Ниже — наши расценки, стоимость этапов и готовые примеры смет.</p>
+  </div>
+</section>
+
+<section class="section white" style="padding-top:48px">
+  <div class="wrap">
+    <div class="entry">
+      <a href="kalkulyator.html"><span class="k">01 · калькулятор</span><h3>Посчитать свою квартиру</h3><p>Площадь, санузлы, стены, полы, потолки, электрика. Смета по этапам за пару минут.</p></a>
+      <a href="smeta.html"><span class="k">02 · примеры смет</span><h3>Три сметы на 58 м²</h3><p>Базовая, комфорт и под дизайн-проект — каждая работа с объёмом и ценой.</p></a>
+      <a href="#rates"><span class="k">03 · расценки</span><h3>Цены на отдельные работы</h3><p>Полный прайс на работы, по которому считаем все сметы.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- Три сметы -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Примеры</span><h2>Одна квартира — три сметы</h2><p>Двухкомнатная 58 м², бетон, один санузел. Разница в цене — только из-за выбранной отделки.</p></div>
+    <div class="table-wrap">
+      <table class="packages">
+        <thead><tr><th></th>
+          <th>Базовая<small>аккуратно, без сложных решений</small></th>
+          <th>Комфорт<small>продуманный ремонт для жизни</small></th>
+          <th>Под дизайн-проект<small>по чертежам вашего дизайнера</small></th></tr></thead>
+        <tbody id="cmpBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Этапы -->
+<section class="section white">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Стоимость по этапам</span><h2>Сколько стоит каждый этап</h2><p>Смета «Комфорт» на 58 м². Платите по акту после этапа — 5–6 платежей за ремонт.</p></div>
+    <div class="table-wrap">
+      <table style="min-width:640px">
+        <thead><tr><th>№</th><th>Этап</th><th class="r">Доля</th><th class="r">Стоимость</th></tr></thead>
+        <tbody id="stBody"></tbody>
+        <tfoot id="stFoot"></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Типовые -->
+<section class="section" id="tipovye">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Типовые квартиры</span><h2>Сколько стоит ремонт студии, одно-, двух- и трёхкомнатной квартиры</h2><p>Смета «Комфорт», бетон. Трёхкомнатная — с двумя санузлами.</p></div>
+    <div class="table-wrap">
+      <table style="min-width:640px">
+        <thead><tr><th>Квартира</th><th class="r">Площадь</th><th class="r">Работы</th><th class="r">Черновые материалы</th><th class="r">Срок</th></tr></thead>
+        <tbody id="tpBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Расценки -->
+<section class="section white" id="rates">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Расценки</span><h2>Цены на работы</h2><p>Только работы, без материалов. По этим расценкам считаются калькулятор, примеры смет и ваша смета после замера.</p></div>
+    <div class="table-wrap">
+      <table class="rates" style="min-width:560px">
+        <thead><tr><th>Работа</th><th>Ед.</th><th class="r">Цена, ₽</th></tr></thead>
+        <tbody id="rtBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Входит/не входит + оплата -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Без сюрпризов</span><h2>Что входит в цену работ, а что нет</h2></div>
+    <div class="inout">
+      <div class="yes"><h3>Входит</h3><ul>
+        <li>все работы по смете, от защиты подъезда до уборки</li>
+        <li>закупка и доставка черновых материалов (материалы по чекам)</li>
+        <li>подъём, вынос и вывоз строительного мусора</li>
+        <li>согласование работ с управляющей компанией</li>
+        <li>фото- и видеоотчёты, исполнительная схема электрики и сантехники</li>
+      </ul></div>
+      <div class="no"><h3>Не входит</h3><ul>
+        <li>черновые и чистовые материалы — оплачиваются отдельно</li>
+        <li>дизайн-проект — работаем по проекту вашего дизайнера</li>
+        <li>сборка мебели и кухни, установка бытовой техники</li>
+        <li>кондиционеры, системы вентиляции с рекуперацией</li>
+        <li>перепланировка с узакониванием</li>
+      </ul></div>
+    </div>
+    <div class="section-head" style="margin-top:72px"><span class="label">Оплата</span><h2>Как платить</h2></div>
+    <div class="process">
+      <div class="step"><span class="n">01</span><h3>Без аванса за работы</h3><p>Первый платёж за работы — только после приёмки первого этапа.</p></div>
+      <div class="step"><span class="n">02</span><h3>Материалы на этап вперёд</h3><p>Перед этапом согласуем список и сумму, закупаем, присылаем чеки.</p></div>
+      <div class="step"><span class="n">03</span><h3>Акт после этапа</h3><p>Принимаете этап по фото и на месте, подписываете акт, оплачиваете.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band"><div class="wrap">
+  <div><h2>Пришлите планировку — посчитаем смету по этапам</h2><p>Замер бесплатный, смета за 3 рабочих дня.</p></div>
+  <div class="btn-row"><a class="btn btn-primary arrow" href="kalkulyator.html">Калькулятор</a><a class="btn btn-line" href="kontakty.html#brief">Записаться на замер</a></div>
+</div></section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const O = window.OTVES, fmt = O.fmt;
+  const ref = { area: 58, rooms: 2, baths: 1, height: 2.7, state: 'concrete' };
+  const keys = ['base', 'comfort', 'design'];
+  const r = Object.fromEntries(keys.map(k => [k, O.compute({ ...ref, ...O.PRESETS[k], level: k })]));
+  const row = (h, f) => `<tr><th>${h}</th>${keys.map(k => `<td>${f(k)}</td>`).join('')}</tr>`;
+  const L = {
+    walls: { wallpaper: 'обои', paint: 'покраска', decor: 'покраска и декоративная штукатурка' },
+    floor: { lam: 'ламинат или кварцвинил', wood: 'инженерная доска', tile: 'керамогранит' },
+    ceiling: { stretch: 'натяжные', gkl: 'ГКЛ под покраску', complex: 'ГКЛ многоуровневый, теневой профиль' },
+    tile: { std: 'плитка стандартного формата', large: 'керамогранит 60×120', xl: '120×60 и больше, запил 45°' },
+    electric: { std: 'стандарт, ≈ 1,4 точки на м²', ext: 'расширенная, ≈ 1,7 точки на м²', project: 'по электропроекту, ≈ 2,1 точки на м²' },
+    heat: { none: 'нет', bath: 'в санузле', bathKitchen: 'в санузле и на кухне' },
+    doors: { std: 'обычные', hidden: 'скрытого монтажа' },
+  };
+  document.getElementById('cmpBody').innerHTML =
+    row('Работы', k => `<span class="price">${fmt(r[k].work)} <small>₽</small></span>`) +
+    row('За м² работ', k => `<span class="mono">≈ ${fmt(r[k].perM2)} ₽</span>`) +
+    row('Стены', k => L.walls[O.PRESETS[k].walls]) +
+    row('Полы', k => L.floor[O.PRESETS[k].floor]) +
+    row('Тёплый пол', k => L.heat[O.PRESETS[k].heat]) +
+    row('Санузел', k => L.tile[O.PRESETS[k].tile]) +
+    row('Потолки', k => L.ceiling[O.PRESETS[k].ceiling]) +
+    row('Электрика', k => L.electric[O.PRESETS[k].electric]) +
+    row('Двери', k => L.doors[O.PRESETS[k].doors]) +
+    row('Срок', k => `<span class="mono">${r[k].days}–${r[k].days + 15} дн.</span>`) +
+    row('', k => `<a href="smeta.html#${k}">Смета по позициям →</a>`);
+
+  const c = r.comfort;
+  document.getElementById('stBody').innerHTML = c.stages.map(s =>
+    `<tr><td class="mono">${String(s.n).padStart(2, '0')}</td><td>${s.name}</td><td class="r mono">${(s.sum / c.work * 100).toFixed(1).replace('.', ',')} %</td><td class="r mono">${fmt(s.sum)} ₽</td></tr>`).join('');
+  document.getElementById('stFoot').innerHTML = `<tr><td></td><td>Итого работы</td><td class="r mono">100 %</td><td class="r mono">${fmt(c.work)} ₽</td></tr>`;
+
+  const types = [['Студия', 28, 1, 1], ['Однокомнатная', 38, 1, 1], ['Двухкомнатная', 58, 2, 1], ['Трёхкомнатная', 80, 3, 2]];
+  document.getElementById('tpBody').innerHTML = types.map(([n, a, rooms, baths]) => {
+    const t = O.compute({ ...O.PRESETS.comfort, level: 'comfort', area: a, rooms, baths, state: 'concrete' });
+    return `<tr><td>${n}</td><td class="r mono">${a} м²</td><td class="r mono">${fmt(t.work)} ₽</td><td class="r mono">${fmt(t.materials[0] / 1000)}–${fmt(t.materials[1] / 1000)} тыс. ₽</td><td class="r mono">${t.days}–${t.days + 15} дн.</td></tr>`;
+  }).join('');
+
+  document.getElementById('rtBody').innerHTML = Object.values(O.R).map(x =>
+    `<tr><td>${x.name}</td><td>${x.unit}</td><td class="r mono">${fmt(x.price)}</td></tr>`).join('');
+});
+</script>
+</body>
+</html>
