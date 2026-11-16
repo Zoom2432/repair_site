@@ -74,13 +74,7 @@ function footer() {
         <a href="#">Политика обработки персональных данных</a>
       </div>
     </div>
-  </footer>
-  <nav class="contact-bar" aria-label="Связаться">
-    <a class="call" href="${PHONE_HREF}">${ICONS.phone}Позвонить</a>
-    <a href="#">${ICONS.tg}Telegram</a>
-    <a href="#">${ICONS.wa}WhatsApp</a>
-    <a href="#">${ICONS.max}MAX</a>
-  </nav>`;
+  </footer>`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

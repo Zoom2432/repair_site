@@ -19,8 +19,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--f);padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
-@media (min-width:900px){body{padding-bottom:0}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--f)}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px;box-shadow:0 0 0 2px var(--accent)}
 h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;font-weight:600}
@@ -51,7 +50,7 @@ header.top .bar-in{display:flex;align-items:center;gap:24px;min-height:64px;padd
 .hphone{margin-left:auto;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap;font-size:15px}
 .hcta{display:none;min-height:44px}
 @media (min-width:1100px){.nav{display:flex}.hcta{display:inline-flex}}
-@media (max-width:480px){.hphone{display:none}header.top .bar-in{min-height:58px}}
+@media (max-width:480px){header.top .bar-in{min-height:58px;gap:12px;padding:0 16px}header.top .bar-in svg{height:28px}.hphone{font-size:14px}}
 
 /* hero */
 .hero{display:grid;gap:16px;padding-top:24px}
@@ -318,8 +317,6 @@ footer.site .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top
   </div>
 </footer>
 </div>
-
-<nav class="mbar" aria-label="Связаться"><a href="tel:+79000000000">Позвонить</a><a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">MAX</a></nav>
 
 </body>
 </html>
